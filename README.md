@@ -1,2 +1,2 @@
 # cars
-Cars homework
+Cars homework assingment for [CTT](https://ctt-adm.ru)
