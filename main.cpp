@@ -48,20 +48,24 @@ int main() {
         cout << i + 1;
         cars[i].print();
     }
-    int ct;
+    int ct = 0;
     int l = 901 + (rand() % 99); // задать длину трассы
     cout << "Длинна трассы = " << l << endl;
     cout << "Делайте ставки!" << endl;  // Сделать возможность сделать ставку на победителя
-    cin >> ct;
-    cars[ct - 1].cta = true;
-    bool ocon = false;
     do
     {
-        ocon = true;
+        cout << "Введите число от 1 до 10: ";
+        cin >> ct;
+    } while (!(ct > 0 && ct < 11));
+    cars[ct - 1].cta = true;
+    bool f;
+    do
+    {
+        f = true;
         for (int i = 0; i < 10; ++i)
         {
             cars[i].Move();
-            if (cars[i].x >= l and cars[i].win == false)
+            if (cars[i].x >= l && cars[i].win == false)
             {
                 bool k = true;
                 for (int j = 0; j < 10; ++j) {
@@ -79,14 +83,14 @@ int main() {
             }
             if (cars[i].win == false)
                 {
-                    ocon = false;
+                    f = false;
                 }
         }
-    } while (!ocon);
+    } while (!f);
 
     // симулировать гонку с увеличением скорости и координаты
     // вывести порядок, в котором машины приедут
-    //system("pause")
+    system("pause");
 
     return 0;
 }
